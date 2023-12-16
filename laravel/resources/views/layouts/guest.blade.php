@@ -17,10 +17,38 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
+
+    <body class="font-sans antialiased">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <section class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
+                <div class="px-4 mx-auto max-w-screen-xl lg:px-8">
+                    <!-- Barre de navigation et connexion utilisateur -->
+                    <nav class="flex justify-between items-center py-4">
+                        <!-- Logo ou nom du site -->
+                        <div>
+                            <a href="/" class="text-lg font-semibold">Google</a>
+                        </div>
+
+                        <!-- Liens de connexion -->
+                        <div>
+                            @auth
+                                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+                            @else
+                                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Connexion</a>
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Inscription</a>
+                                @endif
+                            @endauth
+                        </div>
+                    </nav>
+                </div>
+            </section>
         </div>
+
+        <!-- Page Content -->
+        <main>
+            {{ $slot }}
+        </main>
 
         @livewireScripts
     </body>
