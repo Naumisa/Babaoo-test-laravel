@@ -9,6 +9,7 @@ class Main extends Component
 {
     public $results;
     public $searchTerm;
+    public $showImages = false;
 
     public function mount($searchTerm, $results)
     {
@@ -19,5 +20,10 @@ class Main extends Component
     public function render()
     {
         return view('livewire.pages.search.main');
+    }
+
+    public function toggleDisplay()
+    {
+        $this->showImages = !$this->showImages;
     }
 }
