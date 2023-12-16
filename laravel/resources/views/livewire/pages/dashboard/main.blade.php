@@ -12,7 +12,7 @@
                 </div>
             @endforeach
 
-            <button wire:click="clear" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">
+            <button wire:click="clear" wire:confirme="Etes-vous sûr de vouloir supprimer cette recheche ?" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">
                 Vider l'historique
             </button>
         @else
